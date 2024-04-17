@@ -30,7 +30,7 @@ const Navbar = () => {
           <Link to='/wishlist' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
               <p className="text text-xl font-semibold">Wishlist</p>
           </Link>
-          <Link to='/cart' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
+          <Link to='/cart' className='flex w-full items-center justify-center gap-4 py-5'>
               <p className="text text-xl font-semibold">Cart</p>
           </Link>
         </div>
