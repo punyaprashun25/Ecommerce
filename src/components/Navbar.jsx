@@ -1,6 +1,15 @@
-import React from 'react'
-import { RxCube, RxHamburgerMenu } from "react-icons/rx";
+import React, { useState } from 'react'
+import { RxCube, RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+// import { CgProfile } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const HandleMenu = () =>{
+    setShowMenu(true);
+  }
+  const HandleCloseMenu = ()=>{
+    setShowMenu(false);
+  }
   return (
     <div className='navbar w-full h-20 shadow-md flex items-center justify-between px-8'>
         <div className="logo flex gap-4">
@@ -8,7 +17,22 @@ const Navbar = () => {
             <p className="company-text flex items-center text-xl font-semibold"><span className='text-red-500'>Cart</span>-On</p>
         </div>
         <div className="hamburger sm:hidden">
-          <RxHamburgerMenu size={32} />
+          <RxHamburgerMenu size={32} onClick={HandleMenu}/>
+        </div>
+        <div className={`link-menu absolute flex-col gap-6 items-end px-10 py-12 z-10 top-0 left-0 w-full bg-white `+(showMenu ? 'flex' : 'hidden')}>
+          <RxCross1 size={32} onClick={HandleCloseMenu}/>
+          <Link to='/' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
+              <p className="text text-3xl font-semibold">Home</p>
+          </Link>
+          <Link to='/' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
+              <p className="text text-3xl font-semibold">Profile</p>
+          </Link>
+          <Link to='/wishlist' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
+              <p className="text text-3xl font-semibold">Wishlist</p>
+          </Link>
+          <Link to='/cart' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
+              <p className="text text-3xl font-semibold">Cart</p>
+          </Link>
         </div>
     </div>
   )
