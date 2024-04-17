@@ -19,19 +19,19 @@ const Navbar = () => {
         <div className="hamburger sm:hidden">
           <RxHamburgerMenu size={32} onClick={HandleMenu}/>
         </div>
-        <div className={`link-menu absolute flex-col gap-6 items-end px-10 py-12 z-10 top-0 left-0 w-full bg-white `+(showMenu ? 'flex' : 'hidden')}>
+        <div className={`link-menu absolute flex-col gap-4 items-end px-12 py-8 z-10 top-0 left-0 w-full bg-white `+(showMenu ? 'flex' : 'hidden')}>
           <RxCross1 size={32} onClick={HandleCloseMenu}/>
-          <Link to='/' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
-              <p className="text text-3xl font-semibold">Home</p>
+          <Link to='/' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
+              <p className="text text-xl font-semibold">Home</p>
           </Link>
-          <Link to='/' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
-              <p className="text text-3xl font-semibold">Profile</p>
+          <Link to='/' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
+              <p className="text text-xl font-semibold">Profile</p>
           </Link>
-          <Link to='/wishlist' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
-              <p className="text text-3xl font-semibold">Wishlist</p>
+          <Link to='/wishlist' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
+              <p className="text text-xl font-semibold">Wishlist</p>
           </Link>
-          <Link to='/cart' className='flex w-full items-center justify-center gap-6 py-5 border-b-2'>
-              <p className="text text-3xl font-semibold">Cart</p>
+          <Link to='/cart' className='flex w-full items-center justify-center gap-4 py-5 border-b-2'>
+              <p className="text text-xl font-semibold">Cart</p>
           </Link>
         </div>
     </div>
