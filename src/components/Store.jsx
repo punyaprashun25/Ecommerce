@@ -27,7 +27,7 @@ const Store = () => {
     }, []);
 
     if (loading) {
-        return <div className='loading-box'>
+        return <div className='loading-box w-full h-screen text-center mt-8 text-3xl'>
             <p className="text">Loading.....</p>
         </div>;
     }

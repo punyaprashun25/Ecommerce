@@ -13,7 +13,7 @@ const Navbar = () => {
     setShowMenu(false);
   }
   return (
-    <div className='navbar w-full h-20 shadow-md flex items-center justify-between px-8'>
+    <div className='navbar w-full sticky z-20 bg-white top-0 left-0 h-20 shadow-md flex items-center justify-between px-8'>
         <Link to='/'>
           <div className="logo flex gap-4">
               <RxCube size={50}/>
