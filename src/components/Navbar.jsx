@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { RxCube, RxHamburgerMenu, RxCross1 } from "react-icons/rx";
-// import { CgProfile } from "react-icons/cg";
+import { CiHeart } from "react-icons/ci";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { RiUserSettingsLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -16,8 +18,22 @@ const Navbar = () => {
             <RxCube size={50}/>
             <p className="company-text flex items-center text-xl font-semibold"><span className='text-red-500'>Cart</span>-On</p>
         </div>
-        <div className="hamburger sm:hidden">
+        <div className="hamburger md:hidden">
           <RxHamburgerMenu size={32} onClick={HandleMenu}/>
+        </div>
+        <div className="button-box hidden items-center gap-10 text-xs font-bold md:flex">
+          <div className="btn flex flex-col items-center gap-1">
+            <RiUserSettingsLine size={20}/>
+            <p className="text">Profile</p>
+          </div>
+          <div className="btn flex flex-col items-center">
+            <CiHeart size={20}/>
+            <p className="text">Wishlist</p>
+          </div>
+          <div className="btn flex flex-col items-center">
+            <HiOutlineShoppingBag size={20}/>
+            <p className="text">Bag</p>
+          </div>
         </div>
         <div className={`link-menu absolute flex-col gap-4 items-end px-12 py-8 z-10 top-0 left-0 w-full bg-white `+(showMenu ? 'flex' : 'hidden')}>
           <RxCross1 size={20} onClick={HandleCloseMenu}/>

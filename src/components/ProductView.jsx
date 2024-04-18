@@ -1,10 +1,10 @@
 import React from 'react'
 import { CiHeart } from "react-icons/ci";
-import { IoMdCart } from "react-icons/io";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 const ProductView = ({products, wishlist}) => {
 
   return (
-    <div className='store w-full px-6 py-8 grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-y-10 gap-x-3'>
+    <div className='store w-full px-6 py-8 grid  lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-y-10 gap-x-3'>
       {
         products.map((itemData)=>{
           return <div className="data-container flex flex-col justify-center items-center px-4 py-4 w-80 sm:w-72 gap-2 border border-gray-950 rounded-sm justify-self-center" key={itemData.id}>
@@ -18,8 +18,8 @@ const ProductView = ({products, wishlist}) => {
                     <CiHeart size={32} color='red' className='cursor-pointer'/>
                 </div>
                 <div className="addCart flex gap-2 text-white color-white bg-[#FF3E6C] px-4 py-2 rounded-md cursor-pointer" >
+                  <HiOutlineShoppingBag size={24}/>
                   <p className="buy">Add to Cart</p>
-                    <IoMdCart size={24}/>
                 </div>
             </div>
           </div>
