@@ -1,9 +1,9 @@
 import React from 'react'
-
+import {Navbar} from '../components'
 const Cartpage = () => {
   return (
-    <div>
-      
+    <div className='cartpage'>
+        <Navbar />
     </div>
   )
 }

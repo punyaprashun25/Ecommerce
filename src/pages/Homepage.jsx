@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer, Store, Navbar } from '../components'
+import { Footer, Navbar, Store } from '../components'
 
 const Homepage = () => {
   return (

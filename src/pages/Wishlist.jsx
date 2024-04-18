@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { Navbar } from '../components'
 const Wishlist = () => {
   return (
-    <div>
-      
+    <div className='wishlist'>
+      <Navbar />
     </div>
   )
 }
