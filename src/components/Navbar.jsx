@@ -22,15 +22,15 @@ const Navbar = () => {
           <RxHamburgerMenu size={32} onClick={HandleMenu}/>
         </div>
         <div className="button-box hidden items-center gap-10 text-xs font-bold md:flex">
-          <div className="btn flex flex-col items-center gap-1">
+          <div className="btn flex flex-col items-center cursor-pointer">
             <RiUserSettingsLine size={20}/>
             <p className="text">Profile</p>
           </div>
-          <div className="btn flex flex-col items-center">
+          <div className="btn flex flex-col items-center cursor-pointer">
             <CiHeart size={20}/>
             <p className="text">Wishlist</p>
           </div>
-          <div className="btn flex flex-col items-center">
+          <div className="btn flex flex-col items-center cursor-pointer">
             <HiOutlineShoppingBag size={20}/>
             <p className="text">Bag</p>
           </div>

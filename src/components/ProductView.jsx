@@ -1,7 +1,20 @@
 import React from 'react'
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { useDispatch } from 'react-redux';
+import {addToWishlist} from '../store/wishlistSlice';
+import {addToCart} from '../store/cartSlice';
+
 const ProductView = ({products, wishlist}) => {
+  const dispatch = useDispatch();
+
+  const HandleWishlist = (item)=>{
+    dispatch(addToWishlist(item));
+  }
+
+  const HandleAddtoCart = (item)=>{
+    dispatch(addToCart(item));
+  }
 
   return (
     <div className='store w-full px-6 py-8 grid  lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 gap-y-10 gap-x-3'>
@@ -14,10 +27,11 @@ const ProductView = ({products, wishlist}) => {
             <p className="title text-sm text-center font-medium">{itemData.title}</p>
             <p className="price text-lg text-center font-semibold">Rs. {itemData.price}</p>
             <div className="btn-box w-full flex justify-center items-center gap-6">
-                <div className="wishlist">
-                    <CiHeart size={32} color='red' className='cursor-pointer'/>
+                <div className="wishlist" onClick={()=>HandleWishlist(itemData)}>
+                    <CiHeart size={32} color={'red'} className='cursor-pointer'/>
                 </div>
-                <div className="addCart flex gap-2 text-white color-white bg-[#FF3E6C] px-4 py-2 rounded-md cursor-pointer" >
+                <div className="addCart flex gap-2 text-white color-white bg-[#FF3E6C] px-4 py-2 rounded-md cursor-pointer" 
+                onClick={()=>HandleAddtoCart(itemData)}>
                   <HiOutlineShoppingBag size={24}/>
                   <p className="buy">Add to Cart</p>
                 </div>
