@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { addToWishlist } from '../store/wishlistSlice';
 import { FaHeart } from "react-icons/fa";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
-
-const ProductView = ({ products, Iswishlist = false, isCart = false}) => {
+const ProductView = ({ products}) => {
   const dispatch = useDispatch();
-
+  const wishlists = useSelector((state)=>state.wishlist);
   const HandleWishlist = (item) => {
     dispatch(addToWishlist(item));
   }
 
   const HandleAddtoCart = (item) => {
     dispatch(addToCart(item));
+  }
+  const isPresentInWishlist = (id)=>{
+    for(let i = 0; i<wishlists.length; i++){
+      if(wishlists[i].id===id)
+        return true;
+      else
+        return false;
+    }
   }
 
   return (
@@ -31,7 +38,7 @@ const ProductView = ({ products, Iswishlist = false, isCart = false}) => {
               <div className="btn-box w-full flex justify-center items-center gap-6">
                 <div className="wishlist" onClick={() => HandleWishlist(itemData)}>
                   {
-                    Iswishlist
+                    (isPresentInWishlist(itemData.id))
                     ? <FaHeart size={32} color={'red'} className='cursor-pointer'/>
                     : <CiHeart size={32} color={'red'} className='cursor-pointer' />
                   }
