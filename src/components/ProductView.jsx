@@ -29,7 +29,7 @@ const ProductView = ({ products}) => {
       ? (<div className='store w-full px-6 py-8 grid  lg:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2 gap-y-10 gap-x-3 '>
         {
           products.map((itemData) => {
-            return <div className="data-container flex flex-col justify-center items-center px-4 py-4 w-80 sm:w-72 gap-2 border border-gray-950 rounded-sm justify-self-center max-h-96" key={itemData.id}>
+            return <div className="data-container flex flex-col justify-center items-center px-4 py-4 w-80 sm:w-72 gap-2 border shadow-md rounded-lg border-none justify-self-center max-h-96" key={itemData.id}>
               <div className="img-box object-contain w-[90%] aspect-[1/1.2] overflow-hidden flex justify-center">
                 <img src={itemData.thumbnail} alt="" className='object-cover' />
               </div>
