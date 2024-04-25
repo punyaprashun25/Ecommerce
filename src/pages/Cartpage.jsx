@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { removeFromCart } from '../store/cartSlice'
 import { addToWishlist } from '../store/wishlistSlice'
 import { useNavigate } from 'react-router-dom'
+import { addToCheckout } from '../store/checkoutSlice'
 
 const Cartpage = () => {
   const cartStorage = useSelector((state) => state.cart);
@@ -34,7 +35,8 @@ const Cartpage = () => {
   }
 
   const HandleBuyNow = ()=>{
-    Navigate('/profile');
+    dispatch(addToCheckout({items : cartStorage, deliveryCharges : deliveryCharges, convenientFee : convenientFee, totalSum : totalSum}));
+    Navigate('/checkout');
   }
 
   return (
@@ -118,7 +120,7 @@ const Cartpage = () => {
             </div>
             <div className="buy-now w-full flex items-center justify-center">
               <button className='bg-emerald-500 w-[50%] py-4 rounded-lg text-white text-xl'
-              onClick={()=>HandleBuyNow}
+              onClick={()=>HandleBuyNow()}
               >Buy Now</button>
             </div>
           </div>
