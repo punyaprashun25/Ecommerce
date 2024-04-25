@@ -1,12 +1,12 @@
 import Homepage from "./Homepage";
-import Wishlist from "./Wishlist";
 import Cartpage from "./Cartpage";
 import Checkout from "./Checkout";
 import Profile from "./Profile";
+import WishListPage from "./WishListPage";
 export {
     Homepage,
-    Wishlist,
     Cartpage,
     Checkout,
-    Profile
+    Profile,
+    WishListPage
 }

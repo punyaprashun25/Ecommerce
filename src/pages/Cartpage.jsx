@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { Footer, Navbar } from '../components'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeFromCart } from '../store/cartSlice'
+import { addToWishlist } from '../store/wishlistSlice'
 
 const Cartpage = () => {
   const cartStorage = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const [totalSum, setTotalSum] = useState(0);
   const [deliveryCharges, setDeliveryCharges] = useState(5);
   const [convenientFee, setConvenientFee] = useState(2);
+  
+  useEffect(()=>{
+    console.log(cartStorage)
+  },[cartStorage])
+
   useEffect(()=>{
     let sum = 0;
     for(let i = 0; i<cartStorage.length; i++){
@@ -14,6 +22,15 @@ const Cartpage = () => {
     }
     setTotalSum(sum);
   },[cartStorage])
+
+  const HandleMoveToWishlist = (item)=>{
+    dispatch(addToWishlist(item));
+    dispatch(removeFromCart(item));
+  }
+  const HandleRemoveFromCart = (item)=>{
+    dispatch(removeFromCart(item));
+  }
+
   return (
     <div className='w-full cartpage'>
       <Navbar />
@@ -45,8 +62,12 @@ const Cartpage = () => {
                         </div>
                       </div>
                       <div className="buttons w-full flex justify-between flex-wrap gap-4">
-                        <button className='shadow-md bg-black text-white px-4 py-2 rounded-md cursor-pointer'>Move to Wishlist</button>
-                        <button className='shadow-md bg-red-400 text-white px-4 py-2 rounded-md cursor-pointer'>Remove from Cart</button>
+                        <button className='shadow-md bg-black text-white px-4 py-2 rounded-md cursor-pointer'
+                        onClick={()=>HandleMoveToWishlist(cartItem)}
+                        >Move to Wishlist</button>
+                        <button className='shadow-md bg-red-400 text-white px-4 py-2 rounded-md cursor-pointer'
+                        onClick={()=>HandleRemoveFromCart(cartItem)}
+                        >Remove from Cart</button>
                       </div>
                     </div>
                   </div>
@@ -71,23 +92,23 @@ const Cartpage = () => {
               }
             </div>
             <div className="total-amount w-full flex justify-between">
-              <p className="label font-medium">Total Sum</p>
+              <p className="label text-lg font-medium">Total Sum</p>
               <p className="amount text-lg font-semibold">${totalSum}</p>
             </div>
             <div className="line w-full h-[1px] bg-[rgba(0,0,0,0.1)]"></div>
             <div className="total-amount-box">
               <div className="deliveryCharges w-full flex justify-between">
-                <p className="label font-medium">Delivery Charges</p>
+                <p className="label">Delivery Charges</p>
                 <p className="amount">${deliveryCharges}</p>
               </div>
               <div className="convenient-fee w-full flex justify-between">
-                <p className="label font-medium">Convenient Fee</p>
+                <p className="label ">Convenient Fee</p>
                 <p className="amount">${convenientFee}</p>
               </div>
             </div>
             <div className="grand-total w-full flex justify-between">
-              <p className="label text-2xl text-yellow-600">Grand Total</p>
-              <p className="amount font-bold text-2xl">${totalSum+deliveryCharges+convenientFee}</p>
+              <p className="label text-xl font-bold text-yellow-600">Grand Total</p>
+              <p className="amount font-semibold text-xl">${totalSum+deliveryCharges+convenientFee}</p>
             </div>
           </div>
         </div>

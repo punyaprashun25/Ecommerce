@@ -8,7 +8,7 @@ const wishListSlice = createSlice({
             state.push(action.payload);
         },
         removeFromWishlist(state, action){
-            state = state.filter((item)=>item.id!==action.payload.id);
+            state.splice(state.findIndex((arrow) => arrow.id === action.payload.id), 1); 
         },
     },
 });
