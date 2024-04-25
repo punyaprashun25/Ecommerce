@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import ProductView from './ProductView';
+import ErrorImgae from '../assets/error.svg'
+
 const Store = () => {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
@@ -27,13 +29,13 @@ const Store = () => {
     }, []);
 
     if (loading) {
-        return <div className='loading-box w-full h-screen text-center mt-8 text-3xl'>
-            <p className="text">Loading.....</p>
+        return <div className='loading-box w-full h-[73vh] flex items-center justify-center text-center text-2xl'>
+            <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-[#EF4444]" />
         </div>;
     }
     if (error !== null) {
-        return <div>
-            <p className="text">Error in loading products....</p>
+        return <div className='w-full h-[73vh] flex items-center justify-center'>
+            <img src={ErrorImgae} alt="" className='h-72 w-72' />
         </div>
     }
     return (

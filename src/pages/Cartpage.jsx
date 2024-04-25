@@ -3,6 +3,7 @@ import { Footer, Navbar } from '../components'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeFromCart } from '../store/cartSlice'
 import { addToWishlist } from '../store/wishlistSlice'
+import { useNavigate } from 'react-router-dom'
 
 const Cartpage = () => {
   const cartStorage = useSelector((state) => state.cart);
@@ -10,6 +11,7 @@ const Cartpage = () => {
   const [totalSum, setTotalSum] = useState(0);
   const [deliveryCharges, setDeliveryCharges] = useState(5);
   const [convenientFee, setConvenientFee] = useState(2);
+  const Navigate = useNavigate();
   
   useEffect(()=>{
     console.log(cartStorage)
@@ -31,12 +33,16 @@ const Cartpage = () => {
     dispatch(removeFromCart(item));
   }
 
+  const HandleBuyNow = ()=>{
+    Navigate('/profile');
+  }
+
   return (
     <div className='w-full cartpage'>
       <Navbar />
       {
         cartStorage && cartStorage.length ?
-        <div className="w-full cartView px-6 py-8 flex gap-6 items-center flex-col md:flex-row md:items-start">
+        <div className="w-full min-h-[73vh] cartView px-6 py-8 flex gap-6 items-center flex-col md:flex-row md:items-start">
           <div className="itemView w-full md:w-[49%] max-w-[580px] flex flex-col gap-4">
             {
               cartStorage.map((cartItem) => {
@@ -109,6 +115,11 @@ const Cartpage = () => {
             <div className="grand-total w-full flex justify-between">
               <p className="label text-xl font-bold text-yellow-600">Grand Total</p>
               <p className="amount font-semibold text-xl">${totalSum+deliveryCharges+convenientFee}</p>
+            </div>
+            <div className="buy-now w-full flex items-center justify-center">
+              <button className='bg-emerald-500 w-[50%] py-4 rounded-lg text-white text-xl'
+              onClick={()=>HandleBuyNow}
+              >Buy Now</button>
             </div>
           </div>
         </div>
