@@ -17,14 +17,6 @@ const WishListPage = () => {
         dispatch(removeFromWishlist(item));
         dispatch(addToCart(item));
     }
-    const isPresentInWishlist = (id) => {
-        for (let i = 0; i < wishlists.length; i++) {
-            if (wishlists[i].id === id)
-                return true;
-            else
-                return false;
-        }
-    }
     return (
         <div className='wishlist-page'>
             <Navbar />
