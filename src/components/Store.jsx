@@ -12,7 +12,7 @@ const Store = () => {
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const res = await fetch('https://dummyjson.com/products?limit=30&skip=10');
+                const res = await fetch('https://dummyjson.com/products?limit=100&skip=10');
                 const data = await res.json();
                 if (data && data.products && data.products.length) {
                     setProducts(data.products);

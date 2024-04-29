@@ -14,9 +14,7 @@ const WishListPage = () => {
     }
 
     const HandleAddtoCart = (item) => {
-        if (isPresentInWishlist(item.id)) {
-            dispatch(removeFromWishlist(item));
-        }
+        dispatch(removeFromWishlist(item));
         dispatch(addToCart(item));
     }
     const isPresentInWishlist = (id) => {
