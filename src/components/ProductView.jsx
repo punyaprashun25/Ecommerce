@@ -51,7 +51,6 @@ const ProductView = ({ products}) => {
                     (isPresentInWishlist(itemData.id))
                     ? <FaHeart size={32} color={'red'} className='cursor-pointer'/>
                     : <CiHeart size={32} color={'red'} className='cursor-pointer' />
-                    // <CiHeart size={32} color={'red'} stroke='red' enableBackground={true} className='cursor-pointer' />
                   }
                 </div>
                 <div className="addCart flex gap-2 text-white color-white bg-[#FF3E6C] px-4 py-2 rounded-md cursor-pointer"
